@@ -20,9 +20,15 @@ Install the requirements using:
 
 ## Starting the Webapp
 
-To run the WebApp on `localhost:8000`, run:
+To run the WebApp on `localhost:5000`, run:
 
  ```python3 app.py```
+
+## Deploying on Heroku
+
+To deploy the app on `Heroku`, commit and push the repository to `Heroku`.
+
+You can check it out [here](http://complaintforum.herokuapp.com)
 
 ## Admin Access
 
