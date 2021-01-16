@@ -18,6 +18,8 @@ Install the requirements using:
 
 ```pip3 install -r requirements.txt```
 
+To avoid getting errors, install the dependencies on virtual environment.
+
 ## Starting the Webapp
 
 To run the WebApp on `localhost:5000`, run:
