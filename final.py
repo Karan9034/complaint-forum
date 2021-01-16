@@ -2,8 +2,9 @@ import pandas as pd
 import os
 import numpy as np
 import nltk, random
-nltk.download('wordnet')
-nltk.download('stopwords')
+nltk.download("wordnet","./nltk_data")
+nltk.download("wordnet","./nltk_data")
+nltk.data.path.append('./nltk_data/')
 from nltk.corpus import stopwords,wordnet
 from nltk.stem import PorterStemmer
 import joblib
