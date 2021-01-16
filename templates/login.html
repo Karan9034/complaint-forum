@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <title>Road Conditions</title>
+    <style>
+        form{
+            margin-top: 5vw;
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{ url_for('home') }}">COMPLAINT FORUM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{{ url_for('report') }}">Report</a>
+            <a class="nav-item nav-link" href="#">Admin Login</a>
+           </div>
+        </div>
+      </nav>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+  <div class="card" style="margin-left: 35%; margin-right: 35%; width: 30%; margin-top: 20vh;">
+    <form method="POST" action="">
+      <div class="form-group">
+        {{ adminForm.email.label }}
+        {{ adminForm.email(class="form-control") }}
+      </div>
+     <div class="form-group">
+        {{ adminForm.password.label }}
+        {{ adminForm.password(class="form-control") }}
+      </div>
+       {{ adminForm.login(class="btn btn-primary") }}
+    </form>
+  </div>
+</body>
+</html>

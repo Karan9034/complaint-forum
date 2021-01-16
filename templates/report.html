@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <title>{{ title }} | Road Conditions</title>
+    <style>
+        form{
+            margin-left: 10vw;
+            margin-right: 10vw;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="{{ url_for('home') }}">COMPLAINT FORUM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#">Report</a>
+            {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+            <a class="nav-item nav-link" href="{{ url_for('login') }}">Admin Login</a>
+            {% endif %}
+           </div>
+        </div>
+      </nav>
+      <form method="post" action="">
+        <div class="form-group">
+            {{ reportForm.email.label(class="bmd-label-floating") }}
+            {{ reportForm.email(class="form-control") }}
+          </div>
+        <div class="form-group">
+          {{ reportForm.area.label(class="bmd-label-floating") }}
+          {{ reportForm.area(class="form-control") }}
+        </div>
+        <div class="form-group">
+          {{ reportForm.street.label(class="bmd-label-floating") }}
+          {{ reportForm.street(class="form-control") }}
+        </div>
+        <div class="form-group">
+          {{ reportForm.title.label(class="bmd-label-floating") }}
+          {{ reportForm.title(class="form-control") }}
+        </div>
+        <div class="form-group">
+          {{ reportForm.description.label(class="bmd-label-floating") }}
+          {{ reportForm.description(class="form-control") }}
+        </div>
+        <button class="btn btn-default">Cancel</button>
+        {{ reportForm.submit(class="btn btn-primary") }}
+      </form>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var modal = $(this)
+        modal.find('.modal-title').text('OTP:')
+        });
+    </script>
+  </body>
+
+</html>
