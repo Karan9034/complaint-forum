@@ -31,9 +31,3 @@ To run the WebApp on `localhost:5000`, run:
 To deploy the app on `Heroku`, commit and push the repository to `Heroku`.
 
 You can check it out [here](http://complaintforum.herokuapp.com)
-
-## Admin Access
-
-Email: abc@xyz.com
-
-Password: blahblah123
